@@ -28,7 +28,7 @@ class CategoryApprovalTest {
     @Test
     @DisplayName("Invalid category approval should throw an error")
     void invalid_category_approval() {
-        String invalidCategoryApproval = "YESNO ";
+        String invalidCategoryApproval = "YESNOO ";
         assertThrows(IllegalArgumentException.class, () -> {
             new CategoryApproval(invalidCategoryApproval);
         });
