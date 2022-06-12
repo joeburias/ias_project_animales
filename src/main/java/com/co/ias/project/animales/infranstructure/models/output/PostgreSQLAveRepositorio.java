@@ -28,7 +28,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public void store(Ave ave) {
-        String sql = "INSERT INTO aves (nombre_comun, nombre_cientifico, nombre_zona, cantidad_confirmada) " +
+        String sql = "INSERT INTO TBL_AVES (nombre_comun, nombre_cientifico, nombre_zona, cantidad_confirmada) " +
                 "values (?, ?, ?, ?)";
 
         try(Connection connection = dataSource.getConnection();
@@ -49,7 +49,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public Optional<Ave> get(AveId aveId) {
-        String sql = "Select * From aves Where id = ?";
+        String sql = "Select * From TBL_AVES Where id = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -74,7 +74,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public Optional<Ave> get(AveNombreComun aveNombreComun) {
-        String sql = "Select * From aves Where nombre_comun = ?";
+        String sql = "Select * From TBL_AVES Where nombre_comun = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -99,7 +99,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public Optional<Ave> get(AveNombreCientifico aveNombreCientifico) {
-        String sql = "Select * From aves Where nombre_cientifico = ?";
+        String sql = "Select * From TBL_AVES Where nombre_cientifico = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -124,7 +124,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public Optional<Ave> get(AveNombreZona aveNombreZona) {
-        String sql = "Select * From aves Where nombre_zona = ?";
+        String sql = "Select * From TBL_AVES Where nombre_zona = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -149,7 +149,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public void update(Ave ave) {
-        String sql = "Update aves Set nombre_comun = ?, nombre_cientifico = ?, nombre_zona = ?, " +
+        String sql = "Update TBL_AVES Set nombre_comun = ?, nombre_cientifico = ?, nombre_zona = ?, " +
                 "cantidad_confirmada = ? Where id = ?";
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -171,7 +171,7 @@ public class PostgreSQLAveRepositorio implements AveRepositorio {
 
     @Override
     public Boolean delete(AveId aveId) {
-        String sql = "Delete from aves Where id = ?";
+        String sql = "Delete from TBL_AVES Where id = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
